@@ -65,136 +65,162 @@ if __name__ == '__main__':
 '''    
 
 
-import datetime
+# import datetime
 
-class Cliente(object):    
-    def __init__(self, nome, objeto, cpf ):
-        self.nome =nome
-        self.objeto = objeto
-        self.cpf = cpf
+# class Cliente(object):    
+#     def __init__(self, nome, objeto, cpf ):
+#         self.nome =nome
+#         self.objeto = objeto
+#         self.cpf = cpf
     
-    def nomeCompleto(self):
-        print(f'Nome:  {self.nome}')
-
-    
-    def getObject(self):
-        print(f'All data object: {self.objeto}')
+#     def nomeCompleto(self):
+#         print(f'Nome:  {self.nome}')
 
     
-    def getStrato(self):
-        print(f'Saldo: {self.objeto.saldo}')
+#     def getObject(self):
+#         print(f'All data object: {self.objeto}')
 
-    def __str__(self):
-        return f'''     
-        --Dados conta {self.nome}--
+    
+#     def getStrato(self):
+#         print(f'Saldo: {self.objeto.saldo}')
 
-        Número: {self.objeto.numero}
-        Nome do cliente: {self.nome}
-        Saldo: {self.objeto.saldo}
-        Limite: {self.objeto.limite}
-        '''
-    def setNome(self, setnome):
-        self.nome = setnome
-        return f'Nome alterado com SUCESSO!! para {self.nome}'
+#     def __str__(self):
+#         return f'''     
+#         --Dados conta {self.nome}--
+
+#         Número: {self.objeto.numero}
+#         Nome do cliente: {self.nome}
+#         Saldo: {self.objeto.saldo}
+#         Limite: {self.objeto.limite}
+#         '''
+#     def setNome(self, setnome):
+#         self.nome = setnome
+#         return f'Nome alterado com SUCESSO!! para {self.nome}'
         
 
-#AGREGAÇÃO : CLIENTE ESTÁ AGREGADO À CONTA
+# #AGREGAÇÃO : CLIENTE ESTÁ AGREGADO À CONTA
 
-class Conta():
-    def __init__(self, numero, saldo , limite):
-        self.numero = numero
-        self.saldo = saldo
-        self.limite = limite
-        self.historico = Historico().historico
+# class Conta():
+#     def __init__(self, numero, saldo , limite):
+#         self.numero = numero
+#         self.saldo = saldo
+#         self.limite = limite
+#         self.historico = Historico().historico
 
 
-    def getNumero(self):
-        print(f'Número: {self.numero}')
-        self.historico.append('Vendo número da conta')
-
-    
-    def depositar(self,valor):
-        self.saldo += valor
-        self.historico.append('Depositar')
-        print('Depositado com sucesso ')
-        return self.saldo
-
-    def setNumero(self,setNumero):
-        self.numero = setNumero
-        return f'Número alterado para {setNumero}'
-
-    def setNome_cliente(self, novoNome):
-        self.nome_cliente = novoNome
-        return 'Nome alterado para ', novoNome
-        self.historico.append('Mundança de nome')
-
+#     def getNumero(self):
+#         print(f'Número: {self.numero}')
+#         self.historico.append('Vendo número da conta')
 
     
-    def Saque(self, valorSaque):
-        if self.saldo < valorSaque:
-            print('Saldo insuficiente')
-        else:
-            self.saldo -= valorSaque
-            return f'Saldo: {self.saldo}'
+#     def depositar(self,valor):
+#         self.saldo += valor
+#         self.historico.append('Depositar')
+#         print('Depositado com sucesso ')
+#         return self.saldo
+
+#     def setNumero(self,setNumero):
+#         self.numero = setNumero
+#         return f'Número alterado para {setNumero}'
+
+#     def setNome_cliente(self, novoNome):
+#         self.nome_cliente = novoNome
+#         return 'Nome alterado para ', novoNome
+#         self.historico.append('Mundança de nome')
+
+
+    
+#     def Saque(self, valorSaque):
+#         if self.saldo < valorSaque:
+#             print('Saldo insuficiente')
+#         else:
+#             self.saldo -= valorSaque
+#             return f'Saldo: {self.saldo}'
         
-        self.historico.append('Saque')
+#         self.historico.append('Saque')
             
 
-    def transferencia(self, paraQuem, valor):
-        if self.Saque(valor):
+#     def transferencia(self, paraQuem, valor):
+#         if self.Saque(valor):
 
-            paraQuem.depositar(valor)
+#             paraQuem.depositar(valor)
             
 
-            print(self)
-            print(paraQuem)
-        else: 
-            print('Tranferência não realizada')
+#             print(self)
+#             print(paraQuem)
+#         else: 
+#             print('Tranferência não realizada')
         
-        self.historico.append('Transferência')
+#         self.historico.append('Transferência')
 
 
-#COMPOSIÇÃO: HISTORICO DEPENDE DE OUTRA CLASSE
+# #COMPOSIÇÃO: HISTORICO DEPENDE DE OUTRA CLASSE
 
-class Historico():
-    def __init__(self):
-        self.data = datetime.date.today()
-        self.hora = datetime.time
-        self.historico = []
+# class Historico():
+#     def __init__(self):
+#         self.data = datetime.date.today()
+#         self.hora = datetime.time
+#         self.historico = []
 
-    def getDataDeAbertura(self):
-        return f'A conta foi aberta no dia {self.data}, na hora {self.hora} '
+#     def getDataDeAbertura(self):
+#         return f'A conta foi aberta no dia {self.data}, na hora {self.hora} '
 
-    def getTransacoes(self):
-        self.historico.append()
+#     def getTransacoes(self):
+#         self.historico.append()
 
-    def mostraHistorico(self):
-        self.historico.append(f'Histórico do dia {self.data}')
+#     def mostraHistorico(self):
+#         self.historico.append(f'Histórico do dia {self.data}')
 
-        for n in self.historico:
-            print(f'- {n}')
+#         for n in self.historico:
+#             print(f'- {n}')
     
 
     
 
+
+
+# if __name__ == '__main__':
+#     conta = Conta('1234',  99999999, 8)
+#     cliente  = Cliente('Victor Murta Garcia',conta, 1223455)
+    
+
+    
+
+#     #print(f'C1: {conta1.getNome_Cliente}')
+#     cliente.nomeCompleto()
+#     cliente.getObject()
+#     print(cliente)
+#     print(cliente.setNome('Murta'))
+#     h = Historico()
+#     h.mostraHistorico()
+
+    
+
+class Cliente():
+    
+    def __init__(self,nome , idade , endereços):
+        self.nome = nome
+        self.idade = idade
+        self.endereços = []
+    
+    def getNome(self):
+        print(f'Nome do cliente: {self.nome}')
+    def inserEndereco(self, cid, est):
+        End = Endereco('Bsb', 'Ag')
+    
+class Endereco():
+    def __init__(self, cidade, estado):
+        self.ciade = cidade
+        self.estado = estado
+    def getCidade(self):
+        print(f'Cidade do cliente {Cliente().nome}: {self.ciade}')
 
 
 if __name__ == '__main__':
-    conta = Conta('1234',  99999999, 8)
-    cliente  = Cliente('Victor Murta Garcia',conta, 1223455)
-    
+    cliente = Cliente('Victor', 19, 'endereco')
 
-    
 
-    #print(f'C1: {conta1.getNome_Cliente}')
-    cliente.nomeCompleto()
-    cliente.getObject()
-    print(cliente)
-    print(cliente.setNome('Murta'))
-    h = Historico()
-    h.mostraHistorico()
 
-    
 
 
 
